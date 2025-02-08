@@ -33,6 +33,16 @@ body {
     font-weight: 500;
 }
 
+/* Sections */
+section {
+    min-height: 100vh;
+    padding: 6rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Hero Section */
 .hero {
     padding: 8rem 2rem 4rem;
