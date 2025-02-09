@@ -49,6 +49,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+/* // Smooth scroll on button press
+document.querySelector(.cta-button).addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('#projects').scrollIntoView({ behavior: 'smooth'});
+}); */
+
+// Arrow Scroll Indicator
+document.querySelector('.scroll-indicator').addEventListener('click', () => {
+  document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
+});
+
+
 // Wheel event for full-screen scroling
 window.addEventListener('wheel', (event) => {
     event.preventDefault();
@@ -87,4 +99,37 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert('Thank you! Your message has been sent.');
     this.reset();
+});
+
+// Email cpoy handler
+const copyEmailButton = document.getElementById('copyEmail');
+const copyNotification = document.getElementById('copyNotification');
+
+copyEmailButton.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  try {
+    await navigator.clipboard.writeText('krzszymczyk95@gmail.com');
+  
+    //Show feedback
+    copyNotification.classList.add('show');
+    setTimeout(() => {
+      copyNotification.classList.remove('show');
+    }, 2000);
+
+  } catch (err) {
+    //Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = 'krzszymczyk95@gmail.com';
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+
+    copyNotification.textContent = 'Press Ctrl+C to copy';
+    copyNotification.classList.add('show');
+    setTimeout (() => {
+      copyNotification.classList.remove('show');
+    }, 2000);
+  }
 });

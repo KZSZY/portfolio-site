@@ -28,6 +28,7 @@ body {
 }
 
 .nav-links a {
+    font-family: 'Inter', sans-serif;
     text-decoration: none;
     color: #333;
     font-weight: 500;
@@ -50,15 +51,174 @@ section {
 }
 
 /* Hero Section */
-.hero {
-    padding: 8rem 2rem 4rem;
-    text-align: center;
-    background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+    animation: float 6s infinite;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
+.hero {
+    background: linear-gradient(45deg, #940fd1, #1709dd, #940fd1);
+    text-align: center;
+    padding: 8rem 2rem 4rem !important;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation-delay: 0,2s;
+    animation: fadeInUp 0.8s forwards;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation-delay: 0,4s;
+    animation: fadeInUp 0.8s 0.2s forwards;
+}
+
+.hero-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation-delay: 0.6s;
+    animation: fadeInUp 0.8s 0.4s forwards;
+}
+
+.highlight {
+    color: #00f3ff;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: #3b82f6 !important;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+    border: 2px solid #3b82f6;
+    opacity: 0;
+    animation-delay: 0.8s;
+    animation: fadeInUp 0.8s 0.6s forwards;
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: white !important;
+}
+
+/* Social Links */
+.social-links {
+    position: absolute;
+    bottom: 4rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #6b82f6;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    color: #3b82f6;
+    transform: translateY(-3px);
+}
+
+.copy-notyfication {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3 ease;
+    z-index: 1000;
+}
+
+.copy-notyfication.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.scroll-indicator:hover i {
+    transform: translateY(5px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-15px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-7px) translateX(-50%);
+    }
 }
 
 /* Projects Section */

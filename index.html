@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
+    <title>Krzysztof | Portfolio</title>
     <link rel="stylesheet" href="./Style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gogleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -20,8 +23,30 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>Aspiring Web Developer</p>
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I'm <span class="highlight">Krzysztof</span>.</h1>
+            <p class="hero-subtitle">Aspiring Web Developer.</p>
+            <p class="hero-description">Crafting clean, responsive websites with HTML, CSS and JavaScript.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://github.com/KZSZY" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/krzysztof-szymczyk-222b83303" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="social-icon" id="copyEmail">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <!-- Notyfication element -->
+        <div id="copyNotification" class="copy-notyfication">Email copied! 📋</div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
     <!-- Projects Section -->
