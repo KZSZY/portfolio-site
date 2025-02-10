@@ -249,31 +249,110 @@ section {
 /* Skills Section */
 .skills {
     padding: 4rem 2rem;
-    background: #f3f4f6;
+    background: #f8f9fa;
 }
 
-.skill-icons {
-    display: flex;
-    flex-wrap: wrap;
+.skills h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+}
+
+.skills-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #3b82f6;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.skill-items {
+    display: grid;
     gap: 1.5rem;
-    justify-content: center;
 }
 
 .skill-item {
+    position: relative;
+    cursor: help;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 8px;
+    transition: background 0.3s;
 }
 
-.skill-icons i {
-    font-size: 3rem;
+.skill-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.skill-item i {
+    font-size: 2rem;
     color: #3b82f6;
+    min-width: 40px;
+    text-align: center;
 }
 
 .skill-name {
-    font-size: 1rem;
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.skill-description {
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    width: 200px;
+    z-index: 10;
+}
+
+.skill-item:hover .skill-description {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tooltip arrow */
+.skill-description::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    border-width: 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(59, 139, 245, 0.9) transparent;
 }
 
 /* Contact Section */
@@ -308,5 +387,11 @@ button {
 @media (max-width: 768px) {
     .nav-links {
         gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat((2, 1fr));
     }
 }
