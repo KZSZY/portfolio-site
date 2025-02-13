@@ -94,13 +94,6 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-// Form submission handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you! Your message has been sent.');
-    this.reset();
-});
-
 // Email cpoy handler
 const copyEmailButton = document.getElementById('copyEmail');
 const copyNotification = document.getElementById('copyNotification');
@@ -133,3 +126,50 @@ copyEmailButton.addEventListener('click', async (e) => {
     }, 2000);
   }
 });
+
+// Form submission with Formspree
+const form = document.getElementById('contactForm');
+form.setAttribute('action', 'https://formspree.io/f/mwpvnnwb');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = form.querySelector('button');
+  const orginalBtnText = submitBtn.innerHTML;
+
+  try {
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa spin"></i> Sending...';
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showNotification('Message sent successfully! 🎉', 'succes');
+      form.reset();
+    } else {
+      showNotification('Oops! Something went wrong.', 'error');
+    }
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error');
+  } finally {
+    submitBtn.innerHTML = orginalBtnText;
+  }
+});
+
+// Notification system
+function showNotification(message, type) {
+  const notification = document.createElement('div');
+  notification.className = 'notification ${type}';
+  notification.textContent = 'message';
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 10);
+
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => document.body.removeChild(notification), 300);
+  }, 3000);
+};
