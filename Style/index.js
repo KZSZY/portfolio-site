@@ -16,7 +16,7 @@ const observer = new IntersectionObserver(
     },
     {
       threshold: 0.5,
-      //rootMargin: '0px 0px -50% 0px'
+      rootMargin: '0px 0px -50% 0px'
     }
 );
 
@@ -61,7 +61,7 @@ document.querySelector('.scroll-indicator').addEventListener('click', () => {
 });
 
 
-// Wheel event for full-screen scroling
+// Wheel event for full-screen scroling //  
 window.addEventListener('wheel', (event) => {
     event.preventDefault();
 
@@ -94,39 +94,6 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-// Email cpoy handler
-const copyEmailButton = document.getElementById('copyEmail');
-const copyNotification = document.getElementById('copyNotification');
-
-copyEmailButton.addEventListener('click', async (e) => {
-  e.preventDefault();
-
-  try {
-    await navigator.clipboard.writeText('krzszymczyk95@gmail.com');
-  
-    //Show feedback
-    copyNotification.classList.add('show');
-    setTimeout(() => {
-      copyNotification.classList.remove('show');
-    }, 2000);
-
-  } catch (err) {
-    //Fallback for older browsers
-    const textArea = document.createElement('textarea');
-    textArea.value = 'krzszymczyk95@gmail.com';
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-
-    copyNotification.textContent = 'Press Ctrl+C to copy';
-    copyNotification.classList.add('show');
-    setTimeout (() => {
-      copyNotification.classList.remove('show');
-    }, 2000);
-  }
-});
-
 // Form submission with Formspree
 const form = document.getElementById('contactForm');
 form.setAttribute('action', 'https://formspree.io/f/mwpvnnwb');
@@ -141,14 +108,15 @@ form.addEventListener('submit', async (e) => {
     const response = await fetch(form.action, {
       method: 'POST',
       body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Accept': 'application/json' },
     });
 
     if (response.ok) {
-      showNotification('Message sent successfully! 🎉', 'succes');
+      showNotification('Message sent successfully! 🎉', 'success');
       form.reset();
     } else {
-      showNotification('Oops! Something went wrong.', 'error');
+      const errorData = await response.json();
+      showNotification(`Error: ${errorData.error || 'Something went wrong.'}`, error);
     }
   } catch (error) {
     showNotification('Network error. Please try again.', 'error');
@@ -160,7 +128,7 @@ form.addEventListener('submit', async (e) => {
 // Notification system
 function showNotification(message, type) {
   const notification = document.createElement('div');
-  notification.className = 'notification ${type}';
+  notification.className = `notification ${type}`;
   notification.textContent = 'message';
   document.body.appendChild(notification);
 
@@ -173,3 +141,8 @@ function showNotification(message, type) {
     setTimeout(() => document.body.removeChild(notification), 300);
   }, 3000);
 };
+
+// Aria Attributess
+navLinks.forEach((link, index) => {
+  link.setAttribute('aria-label', `Scroll to ${sections[index].id}`);
+});

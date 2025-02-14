@@ -33,18 +33,19 @@
     
         <!-- Social Links -->
         <div class="social-links">
-            <a href="https://github.com/KZSZY" target="_blank" class="social-icon">
+            <a href="https://github.com/KZSZY" target="_blank" class="social-icon" aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/krzysztof-szymczyk-222b83303" target="_blank" class="social-icon">
+            <a href="https://linkedin.com/in/krzysztof-szymczyk-222b83303" target="_blank" class="social-icon" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" class="social-icon" id="copyEmail">
-                <i class="fas fa-envelope"></i>
+            <a href="./Documents/CV.pdf" download class="social-icon" aria-label="Download CV">
+                <i class="fas fa-file-download"></i>
+                <span class="download-text">Download CV</span>
             </a>
         </div>
         <!-- Notyfication element -->
-        <div id="copyNotification" class="copy-notyfication">Email copied! 📋</div>
+        <div id="copyNotification" class="copy-notification">Email copied! 📋</div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -174,32 +175,36 @@
                 </div>
 
                 <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Call Me</h3>
-                    <a href="tel:+1234567890" class="contact-link">+1 (234) 567-890</a>
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord DM</h3>
+                    <a href="https://discord.com/users/cyniu" class="contact-link" data-tooltip="Click to open Discord" target="_blank" aria-label="Contact via Discord">
+                        @cyniu
+                    </a>
                 </div>
             
                 <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p class="contact-link">Remote Worldwide</p>
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/krzysztof-szymczyk-222b83303" class="contact-link" target="_blank" aria-label="Visit LinkedIn Profile">
+                        Connect on LinkedIn
+                    </a>
                 </div>
             </div>
 
             <!-- Contact Form -->
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required aria-label="Enter your name">
                     <label for="name">Name</label>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required aria-label="Enter your email">
                     <label for="email">Email</label>
                 </div>
 
                 <div class="form-group">
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required aria-label="Enter your message"></textarea>
                     <label for="message">Message</label>
                 </div>
 
@@ -209,6 +214,11 @@
                 </button>
             </form>
         </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Krzysztof Szymczyk. All rights reserved.</p>
+        </footer>
     </section>
 
     <!-- JavaScript -->

@@ -29,6 +29,12 @@ body {
     list-style: none;
 }
 
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
 .nav-links a {
     text-decoration: none;
     color: #333;
@@ -39,6 +45,18 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
     color: #3b82f6;
+}
+
+.download-text {
+    display: none;
+    position: absolute;
+    bottom: 35px;
+    transform: translateX(-40%);
+    font-size: 1rem;
+}
+
+.social-icon:hover .download-text {
+    display: block;
 }
 
 /* ===== Sections ===== */
@@ -84,6 +102,7 @@ section {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
+    will-change: opacity, transform;
     opacity: 0;
     animation: fadeInUp 0.8s 0.2s forwards;
 }
@@ -92,16 +111,18 @@ section {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
+    will-change: opacity, transform;
     opacity: 0;
-    animation: fadeInUp 0.8s 0.4s forwards;
+    animation: fadeInUp 0.8s 0.5s forwards;
 }
 
 .hero-description {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 2rem;
+    will-change: opacity, transform;
     opacity: 0;
-    animation: fadeInUp 0.8s 0.6s forwards;
+    animation: fadeInUp 0.8s 0.8s forwards;
 }
 
 .highlight {
@@ -120,9 +141,9 @@ section {
     font-weight: 700;
     transition: all 0.3s;
     border: 2px solid #3b82f6;
+    will-change: opacity, transform;
     opacity: 0;
-    animation-delay: 0.8s;
-    animation: fadeInUp 0.8s 0.6s forwards;
+    animation: fadeInUp 0.8s 1.1s forwards;
 }
 
 .cta-button:hover {
@@ -140,6 +161,8 @@ section {
     justify-content: center;
     gap: 1.5rem;
     z-index: 1;
+    opacity: 0;
+    animation: fadeInUp 0.8s 1.4s forwards;
 }
 
 .social-icon {
@@ -153,7 +176,7 @@ section {
     transform: translateY(-3px);
 }
 
-.copy-notyfication {
+.copy-notification {
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -224,6 +247,7 @@ section {
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .project-placeholder {
@@ -358,8 +382,9 @@ section {
 .skill-description {
     font-family: 'Inter', sans-serif;
     position: absolute;
-    bottom: -30px;
-    left: 0;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(59, 130, 246, 0.9);
     color: white;
     padding: 6px 12px;
@@ -390,6 +415,7 @@ section {
 
 /* ===== Contact Section ===== */
 .contact {
+    position: relative;
     background: linear-gradient(45deg, #940fd1, #1709dd, #940fd1);
     padding: 4rem 2rem;
     color: white;
@@ -413,6 +439,12 @@ section {
     margin-bottom: 3rem;
 }
 
+@media (min-width: 768px) {
+    .contact-methods {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 .contact-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
@@ -423,6 +455,7 @@ section {
 
 .contact-card:hover {
     transform: translateY(-5px);
+    color: #3b82f6;
 }
 
 .contact-card i {
@@ -439,6 +472,10 @@ section {
 
 .contact-link:hover {
     color: #3b82f6;
+}
+
+.fa-discord {
+    color: #5865f2;
 }
 
 /* Modern Form Styling */
@@ -527,6 +564,23 @@ section {
     transform:  translateX(5px);
 }
 
+/* ===== Footer ===== */
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Focus styles ===== */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
 /* ===== Animations ===== */
 @keyframes fadeInUp {
     to {
@@ -547,27 +601,28 @@ section {
     }
 }
 
-/* ===== Responsive Design ===== */
+/* ===== Responsivness ===== */
 @media (max-width: 768px) {
-    .nav-links {
-        gap: 1rem;
+    .project-grid, .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        margin: 0 1rem;
+        padding: 0.5rem 0;
     }
 }
 
 @media (min-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat((2, 1fr));
-    }
-}
-
-@media (min-width: 768px) {
-    .projects-grid {
+    .skills-grid, .project-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 768px) {
-    .contact-methods {
-        grid-template-columns: repeat(3, 1fr);
+@media (min-width: 1024px) {
+    .skills-grid, .project-grid, .contact-methods {
+        grid-template-columns: repeat(1fr);
     }
 }
