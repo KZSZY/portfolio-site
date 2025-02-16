@@ -5,6 +5,7 @@
         "skills": "Skills",
         "contact": "Contact"
     },
+    "language": "Language:",
     "heroTitle": "Hi, I'm <span class='highlight'>Krzysztof</span>.",
     "heroSubtitle": "Aspiring Web Developer",
     "heroDescription": "Crafting clean, responsive websites with HTML, CSS and JavaScript.",

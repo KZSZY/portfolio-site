@@ -5,6 +5,7 @@
         "skills": "Umiejętności",
         "contact": "Kontakt"
     },
+    "language": "Język:",
     "heroTitle": "Cześć, jestem <span class='highlight'>Krzysztof</span>.",
     "heroSubtitle": "Początkujący projektant stron internetowych.",
     "heroDescription": "Tworzę czyste, responsywne strony internetowe używając HTML, CSS i JavaScript.",
