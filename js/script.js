@@ -146,3 +146,60 @@ function showNotification(message, type) {
 navLinks.forEach((link, index) => {
   link.setAttribute('aria-label', `Scroll to ${sections[index].id}`);
 });
+
+// Language switcher
+const languageSwitcher = {
+  currentLang: 'en',
+  
+  init() {
+      // Load saved language
+      const savedLang = localStorage.getItem('siteLang');
+      this.currentLang = savedLang || 'en';
+      this.loadLanguage();
+      
+      // Add button click handlers
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+              this.currentLang = e.target.dataset.lang;
+              localStorage.setItem('siteLang', this.currentLang);
+              this.loadLanguage();
+          });
+      });
+  },
+
+  async loadLanguage() {
+      try {
+          const response = await fetch(`./locales/${this.currentLang}.json`);
+          const translations = await response.json();
+          
+          // Update active button
+          document.querySelectorAll('.lang-btn').forEach(btn => {
+              btn.classList.toggle('active-lang', btn.dataset.lang === this.currentLang);
+          });
+
+          // Update content
+          document.querySelectorAll('[data-i18n]').forEach(element => {
+              const key = element.dataset.i18n;
+              element.innerHTML = translations[key];
+          });
+
+          // Update placeholders and aria-labels
+          document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+              const key = element.dataset.i18nPlaceholder;
+              element.placeholder = translations[key];
+          });
+
+          // Update navigation links
+          const navTranslations = translations.nav;
+          document.querySelectorAll('.nav-links a').forEach((link, index) => {
+              link.textContent = Object.values(navTranslations)[index];
+          });
+          
+      } catch (error) {
+          console.error('Error loading language file:', error);
+      }
+  }
+};
+
+// Initialize language switcher
+document.addEventListener('DOMContentLoaded', () => languageSwitcher.init());

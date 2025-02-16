@@ -15,20 +15,24 @@
     <!-- Navigation -->
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" data-i18n="home">Home</a></li>
+            <li><a href="#projects" data-i18n="projects">Projects</a></li>
+            <li><a href="#skills" data-i18n="skills">Skills</a></li>
+            <li><a href="#contact" data-i18n="contact">Contact</a></li>
         </ul>
+        <div class="language-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="pl">PL</button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="highlight">Krzysztof</span>.</h1>
-            <p class="hero-subtitle">Aspiring Web Developer.</p>
-            <p class="hero-description">Crafting clean, responsive websites with HTML, CSS and JavaScript.</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <h1 class="hero-title" data-i18n="heroTitle">Hi, I'm <span class="highlight">Krzysztof</span>.</h1>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">Aspiring Web Developer.</p>
+            <p class="hero-description" data-i18n="heroDescription">Crafting clean, responsive websites with HTML, CSS and JavaScript.</p>
+            <a href="#projects" class="cta-button" data-i18n="ctaButton">View My Work</a>
         </div>
     
         <!-- Social Links -->
@@ -41,11 +45,10 @@
             </a>
             <a href="./Documents/CV.pdf" download class="social-icon" aria-label="Download CV">
                 <i class="fas fa-file-download"></i>
-                <span class="download-text">Download CV</span>
+                <span class="download-text" data-i18n="downloadText">Download CV</span>
             </a>
         </div>
         <!-- Notyfication element -->
-        <div id="copyNotification" class="copy-notification">Email copied! 📋</div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -53,18 +56,18 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2>My Work</h2>
+        <h2 data-i18n="myWork">My Work</h2>
         <div class="project-grid">
 
             <!-- Placeholder Project 1 -->
             <div class="project-card">
                 <div class="project-placeholder">
                     <i class="fas fa-code"></i>
-                    <h3>Coming Soon!</h3>
+                    <h3 data-i18n="comingSoon">Coming Soon!</h3>
                 </div>
                 <div class="project-info">
-                    <h4>Interactive Web App</h4>
-                    <p>A dynamic project showcasing modern JavaScript and API integration.</p>
+                    <h4 data-i18n="interactiveWeb">Interactive Web App</h4>
+                    <p data-i18n="dynamicProject">A dynamic project showcasing modern JavaScript and API integration.</p>
                     <div class="tech-stack">
                         <span>HTML</span>
                         <span>CSS</span>
@@ -78,11 +81,11 @@
             <div class="project-card">
                 <div class="project-placeholder">
                     <i class="fas fa-palette"></i>
-                    <h3>In Progress</h3>
+                    <h3 data-i18n="inProgress">In Progress</h3>
                 </div>
                 <div class="project-info">
-                    <h4>UI Component Library</h4>
-                    <p>Reusable components build with semantic HTML and CSS custom properties.</p>
+                    <h4 data-i18n="uiComponent">UI Component Library</h4>
+                    <p data-i18n="reusableComponents">Reusable components build with semantic HTML and CSS custom properties.</p>
                     <div class="tech-stack">
                         <span>CSS Grid</span>
                         <span>Flexbox</span>
@@ -93,8 +96,8 @@
 
             <!-- Call-to-Action -->
             <div class="project-cta">
-                <p>🚧 I'm currently building my next great project!</p>
-                <p>Check back soon or <a href="#contact"> contact me</a> to collaborate!</p>
+                <p data-i18n="imCurrently">🚧 I'm currently building my next great project!</p>
+                <p data-i18n="checkBack">Check back soon or <a href="#contact"> contact me</a> to collaborate!</p>
             </div>
 
         </div>
@@ -102,30 +105,30 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-        <h2>Skills & Tools</h2>
+        <h2 data-i18n="skilsTools">Skills & Tools</h2>
         <div class="skills-grid">
             <!-- Frontend Skills -->
             <div class="skill-category">
-                <h3>Frontend</h3>
+                <h3 data-i18n="frontend">Frontend</h3>
                 <div class="skill-items">
                     <div class="skill-item">
                         <i class="fab fa-html5"></i>
                         <span class="skill-name">HTML</span>
-                        <div class="skill-description">
+                        <div class="skill-description" data-i18n="skillHTML">
                             Semantic markup, accessibility best practices, form validation
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fab fa-css3-alt"></i>
                         <span class="skill-name">CSS</span>
-                        <div class="skill-description">
+                        <div class="skill-description" data-i18n="skillCSS">
                             Flexbox, CSS grid, media queries and responsive design
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fab fa-js"></i>
                         <span class="skill-name">JavaScript</span>
-                        <div class="skill-description">
+                        <div class="skill-description" data-i18n="skillJS">
                             Functions, DOM manipulation, event handling
                         </div>
                     </div>
@@ -134,26 +137,26 @@
         
             <!-- Tools & Other -->
             <div class="skill-category">
-                <h3>Tools & Workflow</h3>
+                <h3 data-i18n="toolsWorkflow">Tools & Workflow</h3>
                 <div class="skill-items">
                     <div class="skill-item">
                         <i class="fab fa-git-alt"></i>
                         <span class="skill-name">Git</span>
-                        <div class="skill-description">
+                        <div class="skill-description" data-i18n="skillGit">
                             Version control, branching, GitHub
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-terminal"></i>
                         <span class="skill-name">CLI</span>
-                        <div class="skill-description">
+                        <div class="skill-description" data-i18n="skillCLI">
                             Bash scripting, npm scripts, automation
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-code"></i>
                         <span class="skill-name">VS Code</span>
-                        <div class="skill-description">
+                        <div class="skill-description" data-i18n="skillVScode">
                             Extensions, debugging, integrated terminal
                         </div>
                     </div>
@@ -164,13 +167,13 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Let's Connect</h2>
+        <h2 data-i18n="letsConnect">Let's Connect</h2>
         <div class="contact-container">
             <!-- Contact Info Cards-->
             <div class="contact-methods">
                 <div class="contact-card">
                     <i class="fas fa-envelope"></i>
-                    <h3>Email Me</h3>
+                    <h3 data-i18n="emailMe">Email Me</h3>
                     <a href="mailto:krzszymczyk95@gmail.com" class="contact-link">krzszymczyk95@gmail.com</a>
                 </div>
 
@@ -185,7 +188,7 @@
                 <div class="contact-card">
                     <i class="fab fa-linkedin"></i>
                     <h3>LinkedIn</h3>
-                    <a href="https://linkedin.com/in/krzysztof-szymczyk-222b83303" class="contact-link" target="_blank" aria-label="Visit LinkedIn Profile">
+                    <a href="https://linkedin.com/in/krzysztof-szymczyk-222b83303" class="contact-link" target="_blank" aria-label="Visit LinkedIn Profile" data-i18n="connectOnLinkedIn">
                         Connect on LinkedIn
                     </a>
                 </div>
@@ -194,22 +197,22 @@
             <!-- Contact Form -->
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <input type="text" id="name" name="name" required aria-label="Enter your name">
-                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-label="Enter your name" data-i18n-placeholder="namePlaceholder">
+                    <label for="name" data-i18n="nameLabel">Name</label>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" id="email" name="email" required aria-label="Enter your email">
-                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-label="Enter your email" data-i18n-placeholder="emailPlaceholder">
+                    <label for="email" data-i18n="emailLabel">Email</label>
                 </div>
 
                 <div class="form-group">
-                    <textarea id="message" name="message" rows="5" required aria-label="Enter your message"></textarea>
-                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required aria-label="Enter your message"data-i18n-placeholder="messagePlaceholder"></textarea>
+                    <label for="message" data-i18n="messageLabel">Message</label>
                 </div>
 
                 <button type="submit" class="cta-button">
-                    <span>Send Message</span>
+                    <span data-i18n="sendMessage">Send Message</span>
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </form>
@@ -217,11 +220,11 @@
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2025 Krzysztof Szymczyk. All rights reserved.</p>
+            <p data-i18n="footer">&copy; 2025 Krzysztof Szymczyk. All rights reserved.</p>
         </footer>
     </section>
 
     <!-- JavaScript -->
-    <script src="./Style/index.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
